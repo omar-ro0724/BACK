@@ -28,7 +28,16 @@ public class NotificacionController {
 
     @PostMapping
     public Notificacion guardar(@RequestBody Notificacion notificacion) {
+        // Si no tiene fecha, asignar la fecha actual
+        if (notificacion.getFechaEnvio() == null) {
+            notificacion.setFechaEnvio(java.time.LocalDateTime.now());
+        }
         return notificacionService.guardar(notificacion);
+    }
+
+    @PutMapping("/{id}")
+    public Notificacion actualizar(@PathVariable Long id, @RequestBody Notificacion notificacion) {
+        return notificacionService.actualizar(id, notificacion);
     }
 
     @DeleteMapping("/{id}")

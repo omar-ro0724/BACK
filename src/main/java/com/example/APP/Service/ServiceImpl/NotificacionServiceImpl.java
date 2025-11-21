@@ -31,6 +31,19 @@ public class NotificacionServiceImpl implements NotificacionService {
     }
 
     @Override
+    public Notificacion actualizar(Long id, Notificacion notificacion) {
+        return notificacionRepository.findById(id)
+                .map(existing -> {
+                    existing.setMensaje(notificacion.getMensaje());
+                    existing.setFechaEnvio(notificacion.getFechaEnvio() != null ? notificacion.getFechaEnvio() : existing.getFechaEnvio());
+                    existing.setImagenUrl(notificacion.getImagenUrl());
+                    existing.setUsuario(notificacion.getUsuario());
+                    return notificacionRepository.save(existing);
+                })
+                .orElseThrow(() -> new RuntimeException("Notificación no encontrada con id: " + id));
+    }
+
+    @Override
     public void eliminar(Long id) {
         notificacionRepository.deleteById(id);
     }

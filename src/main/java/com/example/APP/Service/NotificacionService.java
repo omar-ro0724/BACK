@@ -10,5 +10,6 @@ public interface NotificacionService {
     List<Notificacion> obtenerTodos();
     Optional<Notificacion> obtenerPorId(Long id);
     Notificacion guardar(Notificacion notificacion);
+    Notificacion actualizar(Long id, Notificacion notificacion);
     void eliminar(Long id);
 }
