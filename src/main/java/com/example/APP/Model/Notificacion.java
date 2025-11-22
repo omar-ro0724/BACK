@@ -17,6 +17,8 @@ public class Notificacion {
     private String mensaje;
     private LocalDateTime fechaEnvio;
     private String imagenUrl;  // Ruta de la imagen adjunta
+    private String videoUrl;  // Ruta del video adjunto
+    private String usuariosEtiquetados;  // JSON array de IDs de usuarios etiquetados
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
@@ -65,5 +67,21 @@ public class Notificacion {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
+
+    public String getUsuariosEtiquetados() {
+        return usuariosEtiquetados;
+    }
+
+    public void setUsuariosEtiquetados(String usuariosEtiquetados) {
+        this.usuariosEtiquetados = usuariosEtiquetados;
     }
 }

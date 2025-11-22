@@ -31,6 +31,11 @@ public class PaqueteriaController {
         return paqueteriaService.guardar(paqueteria);
     }
 
+    @PutMapping("/{id}")
+    public Paqueteria actualizar(@PathVariable Long id, @RequestBody Paqueteria paqueteria) {
+        return paqueteriaService.actualizar(id, paqueteria);
+    }
+
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable Long id) {
         paqueteriaService.eliminar(id);

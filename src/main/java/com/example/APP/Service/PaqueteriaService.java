@@ -10,5 +10,6 @@ public interface PaqueteriaService {
     List<Paqueteria> obtenerTodos();
     Optional<Paqueteria> obtenerPorId(Long id);
     Paqueteria guardar(Paqueteria paqueteria);
+    Paqueteria actualizar(Long id, Paqueteria paqueteria);
     void eliminar(Long id);
 }
